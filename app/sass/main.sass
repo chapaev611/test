@@ -1,6 +1,7 @@
 @import "fonts"
 @import "libs"
 @import "vars"
+@import "_mixins/_base"
 
 *
 	-webkit-box-sizing: border-box
@@ -11,44 +12,75 @@
 		-moz-box-sizing: border-box
 		box-sizing: border-box
 
-*::-webkit-input-placeholder
-	color: #666
-	opacity: 1
-
-*:-moz-placeholder
-	color: #666
-	opacity: 1
-
-*::-moz-placeholder
-	color: #666
-	opacity: 1
-
-*:-ms-input-placeholder
-	color: #666
-	opacity: 1
-
-body input:focus:required:invalid,
-body textarea:focus:required:invalid
-	color: #666
-body input:required:valid,
-body textarea:required:valid
-	color: #666
-
-html, body
-	height: 100%
 
 body
-	font-size: 16px
-	min-width: 320px
 	position: relative
-	line-height: 1.75
+	height: 100vh
+	min-width: 320px
 	font-family: $default-font
-	overflow-x: hidden
+	font-size: 16px
+	line-height: 1.75
 	opacity: 1
+	overflow: hidden
 
-.img-responsive
-	display: block
-	max-width: 100%
-	height: auto
+
+.app
+	position: relative
+	height: 100vh
+	font-size: 0
+	overflow: hidden
+
+	&__header
+		height: 50px
+		border: 2px solid red
+		@include base-style
+
+	&__users
+		display: inline-block;
+		vertical-align: top;
+		width: 15.625%;
+		max-height: calc(100% - 150px)
+		height: 100%
+		border: 2px solid orange
+		overflow-y: auto;
+
+	&__user
+		width: calc(100% - 20px)
+		height: 80px;
+		padding: 10px;
+		margin: 30px 10px;
+		border: 1px solid blue
+		font-size: 16px
+
+	&__chat 
+		display: inline-block
+		vertical-align: top
+		width: calc(100% - 15.625%)
+		max-height: calc(100% - 150px)
+		height: 100%
+		padding: 20px
+		border: 2px solid purple
+		overflow-y: auto
+
+	&__message
+		width: 50%
+		padding: 10px
+		margin: 0 0 30px
+		border: 1px solid blue
+		font-size: 15px
+
+		&_left
+			clear: both
+
+		&_right
+			float: right
+
+
+	&__footer
+		height: 100px
+		border: 2px solid green
+		@include base-style
+
+
 
 @import "media" // Всегда в конце
